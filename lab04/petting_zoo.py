@@ -1,43 +1,45 @@
 def show_help():
     print("Type 'help' to get a list of all the things you can do")
     print("Type 'see' to get a list of all the animals")
-    print("Type 'pet' followed by the animal's name to pet a particular animal")
+    print("Type 'pet <animal>' to pet a particular animal")
     print("Type 'bye' to leave the zoo and exit the program")
-
 
 def show_all_animals():
     print("The animals in the zoo are:")
-    print("• clover the Bunny 🐇")
-    print("• coco the Baby Goat 🐐")
-    print("• arno the Alligator 🐊")
-
+    print("• Clover the Bunny 🐇")
+    print("• Coco the Baby Goat 🐐")
+    print("• Arno the Alligator 🐊")
 
 def pet_animal(animal):
     if animal == "clover":
-        print("clover is so happy! ❤️")
+        print("You pet Clover the Bunny 🐇. She nuzzles your hand happily!")
     elif animal == "coco":
-        print("coco the Baby Goat thanks you! 🥰")
+        print("You pet Coco the Baby Goat 🐐. She bleats joyfully!")
     elif animal == "arno":
-        print("Actually, we cannot allow you to pet Arno. ⛔️")
+        print("You pet Arno the Alligator 🐊. He gives you a toothy grin!")
     else:
-        print("Sorry, I don't know that animal")
-
+        print(f"There is no animal named '{animal}' in the zoo. Please try again.")
 
 print("Welcome to the Petting Zoo!")
 print("Type 'help' to get a list of all the things you can do")
 print()
-keep_going = True
-while keep_going:
+
+while True:
     response = input("What would you like to do? ").strip().lower()
+
     if response == "help":
         show_help()
+
     elif response == "see":
         show_all_animals()
+
     elif response.startswith("pet "):
-        animal = response[4:]
+        animal = response[4:].strip()
         pet_animal(animal)
+
     elif response == "bye":
-        print("Goodbye!")
-        keep_going = False
+        print("Thanks for visiting the Petting Zoo! Goodbye!")
+        break
+
     else:
-        print("Sorry, I don't understand that command.")
+        print("Invalid command. Type 'help' to see the list of available commands.")
