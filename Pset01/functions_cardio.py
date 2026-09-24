@@ -20,7 +20,7 @@
 
 
 def print_square(character, n):
-    for i in range(n):
+    for i in range(1, n +1):
         print(character * n)
 
 print_square(character="n", n=2)
@@ -38,7 +38,13 @@ For example, if n is 3, the output should be:
 pass
 
 
-def is_odd(n):
+response =input("Enter a number: ")
+n = int(response)
+if n % 2 == 1:
+    print("True")
+else:
+    print("False")
+
     """
     Return True if n is odd, False otherwise.
     """

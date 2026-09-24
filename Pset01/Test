@@ -1,0 +1,7 @@
+response =input("Enter a number: ")
+n = int(response)
+if n % 2 == 1:
+    return True
+else:
+    return False
+    print("false")
