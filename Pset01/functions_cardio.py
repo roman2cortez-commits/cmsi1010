@@ -1,130 +1,66 @@
-# ----------------------------------------------------------------------
-# This is the file functions_cardio.py
-#
-# The intent is to give you practice writing functions.
-#
-# Complete the functions below.
-#
-# Each function has a docstring that describes what it should do, but
-# please see the unit tests at the bottom of the file for more
-# specific examples of what each function should return.
-#
-# Do not change the tests at the bottom of the file. They are there for
-# you to check your work. Just run this file with `python` or `python3`
-# (whichever works for your system).
-#
-# Remove this comment, and all of the "replace the pass statement..."
-# comments, prior to submission. You can, and should, add your own
-# comments, but please remove all the comments that are here now.
-# ----------------------------------------------------------------------
+import statistics
 
 
-def print_square(character, n):
+def print_square(n, character="*"):
     for i in range(1, n +1):
         print(character * n)
 
-print_square(character="n", n=2)
 
-
-"""
-   
-
-For example, if n is 3, the output should be:
-***
-***
-***
-"""
-    # replace the pass statement with your code
-pass
-
-
-response =input("Enter a number: ")
-n = int(response)
-if n % 2 == 1:
-    print("True")
-else:
-    print("False")
-
-    """
-    Return True if n is odd, False otherwise.
-    """
-    # replace the pass statement with your code
-    pass
+def is_odd(n):
+    if n % 2 == 1:
+        return True
+    else:
+        return False
 
 
 def median_of_three(a, b, c):
-    """
-    Return the median of three numbers a, b, and c.
-    """
-    # replace the pass statement with your code
-    pass
+    median = statistics.median([a, b, c])
+    return median
 
 
 def is_palindrome(s):
-    """
-    Return True if the string s is a palindrome, False otherwise.
-
-    A palindrome reads the same forwards and backwards. You can
-    implement it as a simple check to see if s is equal to its
-    reversal.
-    """
-    # replace the pass statement with your code
-    pass
+    reversed_s = ""
+    for char in s:
+        reversed_s = char + reversed_s
+    return s == reversed_s
 
 
 def factorial(n):
-    """
-    Return the factorial of n.
-
-    The factorial of a non-negative integer n is the product of all
-    positive integers less than or equal to n. Please implement this
-    function with a for loop.
-    """
-    # replace the pass statement with your code
-    pass
+    result = 1
+    for i in range(1, n + 1):
+        result = result * i
+    return result
 
 
 def count_of_latin_vowels(s):
-    """
-    Return the number of vowels in the string s.
-
-    The vowels are 'a', 'e', 'i', 'o', and 'u'. You can implement this
-    function using a for loop to iterate through the string.
-    """
-    # replace the pass statement with your code
-    pass
+    count = 0
+    for char in s.lower():
+        if char in "aeiou":
+            count += 1
+    return count
 
 
 def at_beginning_or_end(part, whole):
-    """
-    Return True if the part is a prefix or a suffix of whole.
-    """
-    # replace the pass statement with your code
-    pass
+    return whole.startswith(part) or whole.endswith(part)
 
 
 def longest_string(strings):
-    """
-    Return the longest string from a list of strings.
-
-    If there are multiple strings with the same maximum length, return
-    the first one encountered.
-    """
-    # replace the pass statement with your code
-    pass
+    longest = strings[0]
+    for count in strings:
+        if len(count) > len(longest):
+            longest = count
+    return longest
 
 
 def collatz(n):
-    """
-    Return the Collatz sequence starting from n.
-
-    The Collatz sequence is defined as follows:
-    - If n is even, the next term is n / 2.
-    - If n is odd, the next term is 3n + 1.
-    - The sequence ends when it reaches 1.
-    """
-    # replace the pass statement with your code
-    pass
+    sequence = [n]
+    while n != 1:
+        if n % 2 == 0:
+            n = n // 2
+        else:
+            n = 3 * n + 1
+        sequence.append(n)
+    return sequence
 
 
 def test_print_square():
