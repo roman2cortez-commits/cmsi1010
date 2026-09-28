@@ -32,3 +32,26 @@
 # even be correct. Perhaps, worse, they might not follow the instructions
 # exactly as given.
 # ----------------------------------------------------------------------
+print("Welcome to the number guessing game!")
+import random
+counter = 0
+number = random.randint(1, 1000)
+input_str = input("Guess a number between 1 and 1000 (or type 'bye' or 'exit' to quit): ")
+while input_str.lower() != "bye" and input_str.lower() != "exit":
+    counter += 1
+    if not input_str.isdigit():
+        print("Please input a number")
+    elif int(input_str) == number:
+        print("Congratulations! You guessed the number!")
+        print("This is how many guesses it took you!",counter)
+        number = random.randint(1,1000)
+        counter = 0
+    elif int(input_str) > number:
+        print("Too high")
+    elif int(input_str) < number:
+        print("Too low")
+    input_str = input("Guess a number between 1 and 1000 (or type 'bye' or 'exit' to quit): ")
+        
+print("Goodbye!")
+exit()
+
